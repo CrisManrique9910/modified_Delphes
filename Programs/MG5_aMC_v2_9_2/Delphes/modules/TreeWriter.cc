@@ -634,6 +634,13 @@ void TreeWriter::ProcessPhotons(ExRootTreeBranch *branch, TObjArray *array)
 
     // 1: prompt -- 2: non prompt -- 3: fake
     entry->Status = candidate->Status;
+    
+    // HN analysis
+    
+    entry->ZOrigin = candidate->ZOrigin;
+    entry->RelativeT = candidate->RelativeT;
+    
+    //
 
     FillParticles(candidate, &entry->Particles);
   }

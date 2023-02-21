@@ -269,12 +269,19 @@ public:
 
   Int_t Status; // 1: prompt -- 2: non prompt -- 3: fake
 
+  // HN analysis
+ 
+  Float_t ZOrigin;
+  Float_t RelativeT;
+  
+  //
+
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
   TLorentzVector P4() const;
 
-  ClassDef(Photon, 4)
+  ClassDef(Photon, 5)
 };
 
 //---------------------------------------------------------------------------
@@ -788,13 +795,20 @@ public:
   virtual TObject *Clone(const char *newname = "") const;
   virtual void Clear(Option_t *option = "");
 
+  // HN analysis
+  
+   Float_t ZOrigin;
+   Float_t RelativeT;
+   
+   //
+
 private:
   DelphesFactory *fFactory; //!
   TObjArray *fArray; //!
 
   void SetFactory(DelphesFactory *factory) { fFactory = factory; }
 
-  ClassDef(Candidate, 6)
+  ClassDef(Candidate, 7)
 };
 
 #endif // DelphesClasses_h

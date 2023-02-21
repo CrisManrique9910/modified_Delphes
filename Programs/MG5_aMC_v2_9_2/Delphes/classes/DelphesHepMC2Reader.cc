@@ -386,6 +386,13 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   pdgParticle = fPDG->GetParticle(fPID);
   candidate->Charge = pdgParticle ? int(pdgParticle->Charge() / 3.0) : -999;
   candidate->Mass = fMass;
+  
+  // HN analysis
+  
+  candidate->ZOrigin = 3.0;
+  candidate->RelativeT = 1.0;
+    
+  //
 
   candidate->Momentum.SetPxPyPzE(fPx, fPy, fPz, fE);
   if(fMomentumCoefficient != 1.0)
@@ -421,7 +428,7 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   allParticleOutputArray->Add(candidate);
 
   if(!pdgParticle) return;
-
+  
   if(fStatus == 1)
   {
     stableParticleOutputArray->Add(candidate);
