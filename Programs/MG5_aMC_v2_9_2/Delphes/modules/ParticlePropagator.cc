@@ -355,6 +355,7 @@ void ParticlePropagator::Process()
         candidate->Yd = yd * 1.0E3;
         candidate->Zd = zd * 1.0E3;
 
+	cout << candidate->RelativeT;
         candidate->AddCandidate(mother);
 
         fOutputArray->Add(candidate);

@@ -348,6 +348,9 @@ void Candidate::Copy(TObject &obj) const
   Candidate &object = static_cast<Candidate &>(obj);
   Candidate *candidate;
 
+  object.ZOrigin = ZOrigin;
+  object.RelativeT = RelativeT;
+
   object.PID = PID;
   object.Status = Status;
   object.M1 = M1;

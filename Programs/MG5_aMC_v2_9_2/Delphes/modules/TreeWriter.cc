@@ -237,6 +237,13 @@ void TreeWriter::ProcessParticles(ExRootTreeBranch *branch, TObjArray *array)
     entry->Y = position.Y();
     entry->Z = position.Z();
     entry->T = position.T() * 1.0E-3 / c_light;
+    
+    // HN analysis
+    
+    entry->ZOrigin = candidate->ZOrigin;
+    entry->RelativeT = candidate->RelativeT;
+    
+    //
   }
 }
 
