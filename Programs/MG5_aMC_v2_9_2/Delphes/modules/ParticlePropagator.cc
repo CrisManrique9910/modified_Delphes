@@ -171,7 +171,6 @@ void ParticlePropagator::Process()
     bsz = beamSpotPosition.Z() * 1.0E-3;
 
     q = particle->Charge;
-
     // check that particle position is inside the cylinder
     if(TMath::Hypot(x, y) > fRadiusMax || TMath::Abs(z) > fHalfLengthMax)
     {
@@ -354,8 +353,7 @@ void ParticlePropagator::Process()
         candidate->Xd = xd * 1.0E3;
         candidate->Yd = yd * 1.0E3;
         candidate->Zd = zd * 1.0E3;
-
-	cout << candidate->RelativeT;
+        
         candidate->AddCandidate(mother);
 
         fOutputArray->Add(candidate);

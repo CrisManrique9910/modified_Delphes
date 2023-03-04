@@ -261,8 +261,12 @@ bool DelphesHepMC2Reader::ReadBlock(DelphesFactory *factory,
       && bufferStream.ReadInt(fStatus)
       && bufferStream.ReadDbl(fTheta)
       && bufferStream.ReadDbl(fPhi)
-      && bufferStream.ReadInt(fInVertexCode);
-
+      && bufferStream.ReadInt(fInVertexCode)
+      && bufferStream.ReadInt(fNFLowList)
+      && bufferStream.ReadDbl(fZOrigin)
+      && bufferStream.ReadDbl(fRelativeT);
+     
+     //cout << fRelativeT;
     if(!rc)
     {
       cerr << "** ERROR: "
@@ -388,9 +392,8 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   candidate->Mass = fMass;
   
   // HN analysis
-  
-  candidate->ZOrigin = 3.0;
-  candidate->RelativeT = 1.0;
+  candidate->ZOrigin = fZOrigin;
+  candidate->RelativeT = fRelativeT;
     
   //
 

@@ -646,7 +646,6 @@ void TreeWriter::ProcessPhotons(ExRootTreeBranch *branch, TObjArray *array)
     
     entry->ZOrigin = candidate->ZOrigin;
     entry->RelativeT = candidate->RelativeT;
-    
     //
 
     FillParticles(candidate, &entry->Particles);
