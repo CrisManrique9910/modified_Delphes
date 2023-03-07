@@ -237,13 +237,6 @@ void TreeWriter::ProcessParticles(ExRootTreeBranch *branch, TObjArray *array)
     entry->Y = position.Y();
     entry->Z = position.Z();
     entry->T = position.T() * 1.0E-3 / c_light;
-    
-    // HN analysis
-    
-    entry->ZOrigin = candidate->ZOrigin;
-    entry->RelativeT = candidate->RelativeT;
-    
-    //
   }
 }
 
@@ -642,11 +635,8 @@ void TreeWriter::ProcessPhotons(ExRootTreeBranch *branch, TObjArray *array)
     // 1: prompt -- 2: non prompt -- 3: fake
     entry->Status = candidate->Status;
     
-    // HN analysis
-    
-    entry->ZOrigin = candidate->ZOrigin;
-    entry->RelativeT = candidate->RelativeT;
-    //
+    entry->ZOrigin = candidate->ZOrigin; // CMMC
+    entry->RelativeT = candidate->RelativeT; // CMMC
 
     FillParticles(candidate, &entry->Particles);
   }

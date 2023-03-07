@@ -262,11 +262,12 @@ bool DelphesHepMC2Reader::ReadBlock(DelphesFactory *factory,
       && bufferStream.ReadDbl(fTheta)
       && bufferStream.ReadDbl(fPhi)
       && bufferStream.ReadInt(fInVertexCode)
-      && bufferStream.ReadInt(fNFLowList)
-      && bufferStream.ReadDbl(fZOrigin)
-      && bufferStream.ReadDbl(fRelativeT);
+      && bufferStream.ReadInt(fNFLowList) // CMMC
+      && bufferStream.ReadDbl(fZOrigin) // CMMC
+      && bufferStream.ReadDbl(fRelativeT); // CMMC
      
-     //cout << fRelativeT;
+    // cout << fRelativeT; // CMMC
+     
     if(!rc)
     {
       cerr << "** ERROR: "
@@ -391,11 +392,8 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   candidate->Charge = pdgParticle ? int(pdgParticle->Charge() / 3.0) : -999;
   candidate->Mass = fMass;
   
-  // HN analysis
-  candidate->ZOrigin = fZOrigin;
-  candidate->RelativeT = fRelativeT;
-    
-  //
+  candidate->ZOrigin = fZOrigin; // CMMC
+  candidate->RelativeT = fRelativeT; // CMMC
 
   candidate->Momentum.SetPxPyPzE(fPx, fPy, fPz, fE);
   if(fMomentumCoefficient != 1.0)

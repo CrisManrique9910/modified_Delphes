@@ -92,8 +92,8 @@ private:
   int fOutVertexCode, fVertexID, fInCounter, fOutCounter;
   double fX, fY, fZ, fT;
 
-  int fParticleCode, fPID, fStatus, fInVertexCode, fNFLowList;
-  double fPx, fPy, fPz, fE, fMass, fTheta, fPhi, fZOrigin, fRelativeT;
+  int fParticleCode, fPID, fStatus, fInVertexCode, fNFLowList; // CMMC
+  double fPx, fPy, fPz, fE, fMass, fTheta, fPhi, fZOrigin, fRelativeT; // CMMC
 
   int fParticleCounter;
 

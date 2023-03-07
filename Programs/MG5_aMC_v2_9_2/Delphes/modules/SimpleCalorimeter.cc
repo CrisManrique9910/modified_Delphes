@@ -404,8 +404,8 @@ void SimpleCalorimeter::Process()
     fTower->AddCandidate(particle);
     fTower->Position = position;
     
-    fTower->ZOrigin = particle->ZOrigin;
-    fTower->RelativeT = particle->RelativeT;
+    fTower->ZOrigin = particle->ZOrigin; // CMMC
+    fTower->RelativeT = particle->RelativeT; // CMMC
     
   }
 
@@ -492,7 +492,7 @@ void SimpleCalorimeter::FinalizeTower()
     tower->Eem = (!fIsEcal) ? 0 : neutralEnergy;
     tower->Ehad = (fIsEcal) ? 0 : neutralEnergy;
     tower->PID = (fIsEcal) ? 22 : 0;
-    //cout << tower->ZOrigin;
+    //cout << tower->ZOrigin; // CMMC
     tower->Momentum.SetPtEtaPhiE(pt, eta, phi, neutralEnergy);
     fEFlowTowerOutputArray->Add(tower);
 

@@ -157,19 +157,12 @@ public:
   Float_t Y; // particle vertex position (y component) | hepevt.vhep[number][1]
   Float_t Z; // particle vertex position (z component) | hepevt.vhep[number][2]
 
-  // HN analysis
- 
-  Float_t ZOrigin;
-  Float_t RelativeT;
-  
-  //
-
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
   TLorentzVector P4() const;
 
-  ClassDef(GenParticle, 3)
+  ClassDef(GenParticle, 2)
 };
 
 //---------------------------------------------------------------------------
@@ -275,20 +268,16 @@ public:
   Float_t SumPt; // isolation variable
 
   Int_t Status; // 1: prompt -- 2: non prompt -- 3: fake
-
-  // HN analysis
  
-  Float_t ZOrigin;
-  Float_t RelativeT;
-  
-  //
+  Float_t ZOrigin; // CMMC
+  Float_t RelativeT; // CMMC
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
   TLorentzVector P4() const;
 
-  ClassDef(Photon, 5)
+  ClassDef(Photon, 5) // CMMC
 };
 
 //---------------------------------------------------------------------------
@@ -802,12 +791,8 @@ public:
   virtual TObject *Clone(const char *newname = "") const;
   virtual void Clear(Option_t *option = "");
 
-  // HN analysis
-  
-   Float_t ZOrigin;
-   Float_t RelativeT;
-   
-   //
+   Float_t ZOrigin; // CMMC
+   Float_t RelativeT; // CMMC
 
 private:
   DelphesFactory *fFactory; //!
@@ -815,7 +800,7 @@ private:
 
   void SetFactory(DelphesFactory *factory) { fFactory = factory; }
 
-  ClassDef(Candidate, 7)
+  ClassDef(Candidate, 7) // CMMC
 };
 
 #endif // DelphesClasses_h

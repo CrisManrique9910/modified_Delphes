@@ -207,6 +207,7 @@ TMatrixDSym ParticleFlowCandidate::CovarianceMatrix() const
 //------------------------------------------------------------------------------
 
 Candidate::Candidate() :
+  ZOrigin(-99.9), RelativeT(-99.9), // CMMC
   PID(0), Status(0), M1(-1), M2(-1), D1(-1), D2(-1),
   Charge(0), Mass(0.0),
   IsPU(0), IsRecoPU(0), IsConstituent(0), IsFromConversion(0),
@@ -348,8 +349,8 @@ void Candidate::Copy(TObject &obj) const
   Candidate &object = static_cast<Candidate &>(obj);
   Candidate *candidate;
 
-  object.ZOrigin = ZOrigin;
-  object.RelativeT = RelativeT;
+  object.ZOrigin = ZOrigin; // CMMC
+  object.RelativeT = RelativeT; // CMMC
 
   object.PID = PID;
   object.Status = Status;
@@ -492,6 +493,8 @@ void Candidate::Clear(Option_t *option)
   int i;
   SetUniqueID(0);
   ResetBit(kIsReferenced);
+  ZOrigin = -99.9; // CMMC
+  RelativeT = -99.9; // CMMC
   PID = 0;
   Status = 0;
   M1 = -1;
